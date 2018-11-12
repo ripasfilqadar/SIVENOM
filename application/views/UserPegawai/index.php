@@ -10,10 +10,11 @@
       toastr.error("<?php echo $this->session->flashdata('error'); ?>");
   <?php } ?>
 </script>
+<?php $this->view('UserPegawai/delete');?>
 <!-- Modal -->
 <div class="modal fade" id="modal-st">
   <div class="modal-dialog modal-lg">
-    <?php $this->view('user_vendor/form');?>
+    <?php $this->view('UserPegawai/form');?>
   </div>
 </div>
 <!-- /.modal -->
@@ -22,7 +23,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            User
+            User Pegawai
           </h1>
         </section>
 
@@ -40,7 +41,7 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" class="form-control" name="cari" id="cari" placeholder="Masukan Kata Pencarian ....">
+                  <input type="text" class="form-control js-datatable-search" name="cari" id="cari" placeholder="Masukan Kata Pencarian ....">
                   </div>
                 </div>
               </div>
@@ -49,33 +50,27 @@
                   <div style="float: right;margin-bottom: 10px">
                     <a class="btn btn-sm btn-info btn-flat pull-right open-modal-st" data-toggle="modal" data-target="#modal-st"><i class="fa fa-plus"></i></a>
                   </div>
-                  <table id="tSortable" class="table table-bordered table-hover jambo_table" cellspacing="0" width="100%">
+                  <table id="user-table" class="table table-bordered table-hover jambo_table" cellspacing="0" width="100%">
                     <thead>
                       <tr>
                           <th>Nama User</th>
+                          <th>NIP</th>
                           <th>Email</th>
                           <th>Alamat</th>
-                          <th>Nama Vendor</th>
                           <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-                      foreach ($userVendor as $user){
+                      foreach ($userPegawai as $user){
                         ?>
                       <tr data-user='<?php echo json_encode($user)?>'>
                         <td> <?php echo $user['Nama'];?>
+                        <td> <?php echo $user['NIP'];?>
                         <td> <?php echo $user['Email'];?>
                         <td> <?php echo $user['Alamat'];?>
-                        <td> <?php echo $user['NamaVendor'];?>
-
                         <td>
-                        <a class="aksi" data-id="<?php echo $user['Id']?>">
-                          <button type="button" class="btn btn-primary js-btn-delete" aria-label="Left Align">
-                            <span class=" glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                          </button>
-                        </a>
-                        <a href="<?php echo site_url('Vendor/edit/'.$user['Id']);?>">
+                        <a href="<?php echo site_url('UserPegawai/edit/'.$user['UserId']);?>">
                           <button type="button" class="btn btn-info " aria-label="Left Align">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                           </button>
@@ -120,19 +115,15 @@
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-<script>
+      <script>
 $(document).ready(function() {
-        var data = [];
-        for ( var i=0 ; i<50000 ; i++ ) {
-            data.push( [ i, i, i, i, i ] );
-        }
+  var data = <?php echo json_encode($data); ?>;
+  var table = $('#tSordatatabletable').DataTable();
 
-        $('#example').DataTable( {
-            data:           data,
-            deferRender:    true,
-            scrollY:        200,
-            scrollCollapse: true,
-            scroller:       true
-        } );
-    } );
+  $('.js-datatable-search').on( 'keyup', function () {
+    table.search( this.value ).draw();
+  } );
+} );
+
+
 </script>

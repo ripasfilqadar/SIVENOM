@@ -37,19 +37,19 @@ if(isset($isEdit)){
               </div>
               <div class="form-group">
                 <label >Realisasi SLA</label>
-                <input type="text" class="form-control" name="RealisasiSLA" placeholder="" value="<?php if($isEdit) echo $data['RealisasiSLA']?>">
+                <input type="text" class="form-control" <?php if($current_user->Role != 'Vendor') echo "disabled";?> name="RealisasiSLA" placeholder="" value="<?php if($isEdit) echo $data['RealisasiSLA']?>">
               </div>
               <div class="form-group">
                 <label >Response Time(menit)</label>
-                <input type="text" class="form-control" name="ResponseTime" placeholder="" value="<?php if($isEdit) echo $data['ResponseTime']?>">
+                <input type="text" class="form-control" <?php if($current_user->Role != 'Vendor') echo "disabled";?> name="ResponseTime" placeholder="" value="<?php if($isEdit) echo $data['ResponseTime']?>">
               </div>
               <div class="form-group">
                 <label >Problem Solving</label>
-                <input type="text" class="form-control" name="ProblemSolving" placeholder="" value="<?php if($isEdit) echo $data['ProblemSolving']?>">
+                <input type="text" class="form-control" <?php if($current_user->Role != 'Vendor') echo "disabled";?> name="ProblemSolving" placeholder="" value="<?php if($isEdit) echo $data['ProblemSolving']?>">
               </div>
               <div class="form-group">
                 <label >Suku Cadang</label>
-                <input type="text" class="form-control" name="SukuCadang" placeholder="" value="<?php if($isEdit) echo $data['SukuCadang']?>">
+                <input type="text" class="form-control" <?php if($current_user->Role != 'Vendor') echo "disabled";?> name="SukuCadang" placeholder="" value="<?php if($isEdit) echo $data['SukuCadang']?>">
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ if(isset($isEdit)){
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+    <a href="<?=site_url('Kontrak/detail/2');?>"><button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button></a>
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
   </div>

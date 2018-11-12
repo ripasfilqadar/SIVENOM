@@ -24,7 +24,7 @@ if(isset($isEdit)){
                 <select class="form-control" name="VendorId" value="<?php if($isEdit) echo $data['VendorId']?>">
                   <?php foreach ($vendors as $vendor) {
                     ?>
-                    <option value="<?php echo $vendor['Id']?>"><?php echo $vendor['NamaVendor']?></option>
+                    <option value="<?php echo $vendor['VendorId']?>"><?php echo $vendor['NamaVendor']?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -33,7 +33,7 @@ if(isset($isEdit)){
                 <select class="form-control" name="UserId" value="<?php if($isEdit) echo $data['UserId']?>">
                   <?php foreach ($pegawais as $pegawai) {
                     ?>
-                    <option value="<?php echo $pegawai['Id']?>"><?php echo $pegawai['Nama']?></option>
+                    <option value="<?php echo $pegawai['UserId']?>"><?php echo $pegawai['Nama']?></option>
                   <?php } ?>
                 </select>
               </div>
@@ -96,7 +96,7 @@ if(isset($isEdit)){
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+    <a href="<?=site_url('Kontrak');?>"><button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button></a>
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
   </div>

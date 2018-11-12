@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class UserVendor extends MY_Controller{
   public $table_name = 'M_User';
-  public $controller = 'user_vendor';
+  public $controller = 'UserVendor';
   public function __construct()
   {
     parent::__construct();
@@ -11,8 +11,13 @@ class UserVendor extends MY_Controller{
 
   function index()
   {
-    $this->data['userVendor'] = $this->M_User->GetVendor();
-    $this->data['vendors'] = $this->M_Vendor->Get();
+    $this->data['userVendor'] = $this->M_User->GetVendor($this->current_user->VendorId);
+    if($this->IsVendor()){    
+      $this->data['vendors'] = $this->M_Vendor->GetBy(array('VendorId' => $this->current_user->VendorId));
+    }else{
+      $this->data['vendors'] = $this->M_Vendor->Get();
+    }
+    
     parent::index();
   }
 
@@ -21,6 +26,15 @@ class UserVendor extends MY_Controller{
     $this->data['Password'] = md5($this->input->post('Password'));
     $this->{$this->table_name}->Create($this->data);
     redirect($this->controller,'refresh');
+  }
+
+  function edit($id){
+    if($this->IsVendor()){
+      $this->data['vendors'] = $this->M_Vendor->GetBy(array('VendorId' => $this->current_user->VendorId));
+    }else{
+      $this->data['vendors'] = $this->M_Vendor->Get();
+    }
+    parent::edit($id);
   }
 }
 ?>

@@ -3,13 +3,14 @@
 class M_User extends MY_Model
 {
   public $table = 'user';
+  public $idName = 'UserId';
   public $NIP, $VendorId, $Id, $Nama, $Email, $IsVendor, $Role;
   function __construct($argument = []) {
 		parent::__construct();
 		if (count($argument) > 0) {
 			$this->NIP = $argument['NIP'];
 			$this->Nama = $argument['Nama'];
-			$this->Id = $argument['Id'];
+			$this->Id = $argument['UserId'];
 			$this->Email = $argument['Email'];
       $this->VendorId = $argument['VendorId'];
       $this->Role = isset($argument['VendorId']) ? 'Vendor' : 'Pegawai';
@@ -23,11 +24,14 @@ class M_User extends MY_Model
 		return $user;
 	}
 
-  public function GetVendor()
+  public function GetVendor($vendorId = null)
   {
     $this->db->select('*');
     $this->db->from('user');
-    $this->db->join('vendor', 'user.VendorId = vendor.id');
+    if($vendorId != null){
+      $this->db->where(array('user.VendorId' => $vendorId));
+    }
+    $this->db->join('vendor', 'user.VendorId = vendor.VendorId');
     $query = $this->db->get();
     return $query->result_array();
   }

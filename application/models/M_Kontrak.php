@@ -2,6 +2,7 @@
 class M_Kontrak extends MY_Model
 {
   public $table = 'kontrak';
+  public $idName = 'KontrakId';
   function __construct()
 	{
       parent::__construct();
@@ -11,8 +12,8 @@ class M_Kontrak extends MY_Model
   {
     $this->db->select('*');
     $this->db->from('kontrak');
-    $this->db->join('vendor', 'kontrak.VendorId = vendor.id');
-    $this->db->join('user', 'kontrak.UserId = user.id');
+    $this->db->join('vendor', 'kontrak.VendorId = vendor.VendorId');
+    $this->db->join('user', 'kontrak.UserId = user.UserId');
     $query = $this->db->get();
     return $query->result_array();
   }
@@ -22,8 +23,8 @@ class M_Kontrak extends MY_Model
     $this->db->select('*');
     $this->db->from('kontrak');
     $this->db->where(array('kontrak.VendorId' => $vendorId));
-    $this->db->join('vendor', 'kontrak.VendorId = vendor.id');
-    $this->db->join('user', 'kontrak.UserId = user.id');
+    $this->db->join('vendor', 'kontrak.VendorId = vendor.VendorId');
+    $this->db->join('user', 'kontrak.UserId = user.UserId');
     $query = $this->db->get();
     return $query->result_array();
   }
@@ -33,8 +34,8 @@ class M_Kontrak extends MY_Model
     $this->db->select('*');
     $this->db->from('kontrak');
     $this->db->where(array('KontrakId' => $id));
-    $this->db->join('vendor', 'kontrak.VendorId = vendor.id');
-    $this->db->join('user', 'kontrak.UserId = user.id');
+    $this->db->join('vendor', 'kontrak.VendorId = vendor.VendorId');
+    $this->db->join('user', 'kontrak.UserId = user.UserId');
     $query = $this->db->get();
     return $query->row_array();
   }

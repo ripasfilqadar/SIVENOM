@@ -97,10 +97,10 @@
         <section class="sidebar">
           <ul class="sidebar-menu">
             <li><a href="<?= site_url('Kontrak'); ?>"><i class="fa fa-envelope"></i> Kontrak</a></li>
-            <li><a href="<?= site_url('Vendor'); ?>"><i class="fa fa-envelope"></i> Vendor</a></li>
+            <li><a href="<?= site_url('UserVendor'); ?>"><i class="fa fa-envelope"></i> User Vendor</a></li>
             <?php if(!isset($_SESSION['user']['VendorId'])) {
               ?>
-              <li><a href="<?= site_url('UserVendor'); ?>"><i class="fa fa-envelope"></i> User Vendor</a></li>
+              <li><a href="<?= site_url('Vendor'); ?>"><i class="fa fa-envelope"></i> Vendor</a></li>
               <li><a href="<?= site_url('UserPegawai'); ?>"><i class="fa fa-envelope"></i> User Pegawai</a></li>
             <?php }?>
 

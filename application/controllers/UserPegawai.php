@@ -2,11 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class UserPegawai extends MY_Controller{
   public $table_name = 'M_User';
-  public $controller = 'user_pegawai';
+  public $controller = 'UserPegawai';
   public function __construct()
   {
     parent::__construct();
     $this->load->model('M_Vendor');
+    if($this->IsVendor()){
+      redirect('Welcome');
+    }
   }
 
   function index()

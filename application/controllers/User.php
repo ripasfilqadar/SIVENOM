@@ -20,7 +20,7 @@ class User extends MY_Controller{
     $user = $this->M_User->GetById($this->current_user->Id);
 
     if(strtoupper(MD5($data['OldPassword']) ) == strtoupper($user['Password']) && $data['NewPassword'] != ''){
-      $this->M_User->Update($user['Id'], array('Password' => MD5($data['NewPassword'])));
+      $this->M_User->Update($user['UserId'], array('Password' => MD5($data['NewPassword'])));
       $this->session->set_flashdata('success','Ubah Password Berhasil .');
       redirect('','refresh');
     } else{

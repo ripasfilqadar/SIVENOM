@@ -62,19 +62,11 @@
                         <td> <?php echo $vendor['NamaVendor'];?>
                         <td> <?php echo $vendor['Keterangan'];?>
                         <td>
-                        <a class="aksi" data-id="<?php echo $vendor['Id']?>">
-                          <button type="button" class="btn btn-primary js-btn-delete" aria-label="Left Align">
-                            <span class=" glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                          </button>
-                        </a>
-                        <a href="<?php echo site_url('Vendor/edit/'.$vendor['Id']);?>">
+                        <a href="<?php echo site_url('Vendor/edit/'.$vendor['VendorId']);?>">
                           <button type="button" class="btn btn-info " aria-label="Left Align">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                           </button>
                         </a>
-                        <button type="button" class="btn btn-danger js-btn-delete" aria-label="Left Align">
-                          <span class="glyphicon  glyphicon-trash" aria-hidden="true"></span>
-                        </button>
                       </tr>
                       <?php }?>
                     </tbody>

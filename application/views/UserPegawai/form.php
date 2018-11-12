@@ -21,24 +21,28 @@ if(isset($isEdit)){
             <div class="col-md-6">
             <div class="form-group">
                 <label >Nama</label>
-                <input type="text" class="form-control" name="Nama" placeholder="">
+                <input type="text" class="form-control" name="Nama" placeholder="" value="<?php  if($isEdit) echo $data['Nama']?>">
               </div>
               <div class="form-group">
                 <label >NIP</label>
-                <input type="text" class="form-control" name="NIP" placeholder="">
+                <input type="text" class="form-control" name="NIP" placeholder="" value="<?php  if($isEdit) echo $data['NIP']?>">
               </div>
               <div class="form-group">
                 <label >Email</label>
-                <input type="text" class="form-control" name="Email" placeholder="">
+                <input type="text" class="form-control" name="Email" placeholder="" value="<?php  if($isEdit) echo $data['Email']?>">
               </div>
               <div class="form-group">
                 <label >Alamat</label>
-                <input type="text" class="form-control" name="Alamat" placeholder="" value="">
+                <input type="text" class="form-control" name="Alamat" placeholder="" value="<?php  if($isEdit) echo $data['Alamat']?>">
               </div>
-              <div class="form-group">
+              <?php if(!$isEdit)
+              { ?>
+                <div class="form-group">
                 <label >Password</label>
                 <input type="password" class="form-control" name="Password" placeholder="" value="">
               </div>
+              <?php } ?>
+              
             </div>
           </div>
           <!-- /.box-body -->
@@ -50,7 +54,7 @@ if(isset($isEdit)){
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+    <a href="<?=site_url('UserPegawai');?>"><button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button></a>
       <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
   </div>

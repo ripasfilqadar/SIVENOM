@@ -132,12 +132,12 @@ $totalDenda = hitungDendaKontrakDC($kontrak, $reports);
                   <table id="LaporanTable" class="table table-bordered table-hover jambo_table" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>Kontrak Kehadiran DC</th>
+                        <!-- <th>Kontrak Kehadiran DC</th>
                         <th>Realisasi Kehadiran DC</th>
                         <th>Kontrak Kehadiran DRC</th>
-                        <th>Realisasi Kehadiran DRC</th>
+                        <th>Realisasi Kehadiran DRC</th> -->
                         <th>Tanggal Pembuatan</th>
-                        <th>Realisasi SLA</th>
+                        <!-- <th>Realisasi SLA</th> -->
                         <th> Status </th>
                         <th>Action</th>
                       </tr>
@@ -148,12 +148,12 @@ $totalDenda = hitungDendaKontrakDC($kontrak, $reports);
                       foreach ($reports as $report){
                         ?>
                       <tr data-laporan='<?php echo json_encode($report)?>' data-denda='<?php echo json_encode(hitungDenda($kontrak, $report))?>'>
-                        <td> <?php echo $report['RealisasiKehadiranDC'];?> </td>
+                        <!-- <td> <?php echo $report['RealisasiKehadiranDC'];?> </td>
                         <td> <?php echo $report['KehadiranDC'];?> </td>
                         <td> <?php echo $report['RealisasiKehadiranDRC'];?> </td>
-                        <td> <?php echo $report['KehadiranDRC'];?> </td>
+                        <td> <?php echo $report['KehadiranDRC'];?> </td> -->
                         <td> <?php echo $report['CreatedAt'];?> </td>
-                        <td> <?php echo $report['RealisasiSLA'];?> </td>
+                        <!-- <td> <?php echo $report['RealisasiSLA'];?> </td> -->
                         <td> <?php echo $report['Value'];?> </td>
                         <td>
                         <?php

@@ -61,7 +61,7 @@
                           <th>NO Kontrak</th>
                           <th>Deskripsi</th>
                           <th>SLA</th>
-                          <th>TanggalPembuatan</th>
+                          <!-- <th>TanggalPembuatan</th> -->
                           <th>Tanggal Kontrak</th>
                           <th>Action</th>
                       </tr>
@@ -76,7 +76,7 @@
                         <td> <?php echo $kontrak['NoKontrak'];?> </td>
                         <td> <?php echo $kontrak['Deskripsi'];?> </td>
                         <td> <?php echo $kontrak['SLA'];?> </td>
-                        <td> <?php echo $kontrak['TanggalPembuatan'];?> </td>
+                        <!-- <td> <?php echo $kontrak['TanggalPembuatan'];?> </td> -->
                         <td> <?php echo $kontrak['TanggalKontrak'];?> </td>
                         <td>
                         <a href="<?php echo site_url('Kontrak/detail/'.$kontrak['KontrakId']);?>">

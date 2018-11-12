@@ -9,7 +9,7 @@
         <h3 class="modalbody js-modal-delete-body" style="text-aligment:center"></h3>
       </div>
       <div class="modal-footer">
-        <form id="myform" method="POST" role="form" action=<?= site_url('vendor/delete');?> enctype="multipart/form-data" autocomplete="off">
+        <form id="deleteVendor" method="POST" role="form" action=<?= site_url('UserVendor/delete');?> enctype="multipart/form-data" autocomplete="off">
           <input type="hidden" value="Id" name="Id" class="js-input-id" >
           <button type="submit" class="btn btn-danger">Hapus</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -21,13 +21,13 @@
 
 <script>
 $(document).ready(() => {
-  $("#datatable").on("click",".js-btn-delete",function(){
+  $("#user-table").on("click",".js-btn-delete",function(){
     var button=this;
     var tr=$(button.closest("tr")).get();
-    let dataVendor = $(tr[0]).data('vendor');
-
+    let dataVendor = $(tr[0]).data('user');
+    
     $('.js-modal-delete-body').html("Apakah anda yakin menghapus User Vendor " + dataVendor.Nama + "?");
-    $("#deleteVendor form input[name='Id'").val(dataVendor.Id);
+    $("#deleteVendor form input[name='Id'").val(dataVendor.UserId);
     $("#deleteVendor").modal("show");
   });
 })

@@ -44,7 +44,8 @@ $(document).ready(() => {
     var button=this;
     var tr=$(button.closest("tr")).get();
     let dataLaporan = $(tr[0]).data('laporan');
-
+  
+    $("#modal-st-update-status form input[name='Status'").val(dataLaporan.Status);
     $("#modal-st-update-status form input[name='LaporanId'").val(dataLaporan.LaporanId);
     $("#modal-st-update-status").modal("show");
   });

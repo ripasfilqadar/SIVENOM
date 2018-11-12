@@ -1,6 +1,7 @@
 <?php
 class MY_Model extends CI_Model {
 	public $table;
+	public $idName = 'Id';
 	function __construct()
 	{
 	    parent::__construct();
@@ -14,7 +15,7 @@ class MY_Model extends CI_Model {
 	    return $query->result_array();
 	}
 	function GetById($id){
-		$query = $this->db->get_where($this->table, array('Id' => $id));
+		$query = $this->db->get_where($this->table, array($this->idName => $id));
 		return $query->row_array();
 	}
 	function GetBy($data){
@@ -22,11 +23,11 @@ class MY_Model extends CI_Model {
 		return $query->result_array();
 	}
 	function Update($id,$data) {
-		$this->db->where(array('Id' => $id));
+		$this->db->where(array($this->idName => $id));
 	  	$this->db->update($this->table, $data);
 	}
 	function Delete($id) {
-		$this->db->delete($this->table, array('Id' => $id));
+		$this->db->delete($this->table, array($this->idName => $id));
 	}
 
 }

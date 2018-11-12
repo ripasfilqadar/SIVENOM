@@ -49,9 +49,14 @@ class MY_Controller extends CI_Controller {
 
   function delete(){
     $id = $this->input->post('Id');
+    
     $this->{$this->table_name}->Delete($id);
     redirect($this->controller,'refresh');
 
+  }
+
+  function IsVendor(){
+    return $this->current_user->VendorId != null;
   }
 }
 ?>

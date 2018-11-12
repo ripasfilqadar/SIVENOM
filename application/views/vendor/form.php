@@ -13,7 +13,7 @@ if(isset($isEdit)){
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Form <?$state?> Kontrak</h4>
+        <h4 class="modal-title">Form <?$state?> Vendor</h4>
         <div class="row">
           <div class="col-md-12">
           <div class="box-body">
@@ -38,7 +38,7 @@ if(isset($isEdit)){
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
+      <a href="<?=site_url('Vendor');?>"><button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button></a>
         <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
     </div>

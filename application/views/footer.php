@@ -1,6 +1,6 @@
  <footer class="main-footer">
         
-        <strong>Copyright &copy; 2018 <a href="<?= site_url('Welcome'); ?>">Monitoring Surat Tugas</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2018 <a href="<?= site_url('Welcome'); ?>">Sistem Informasi Vendor Monitoring</a>.</strong> All rights reserved.
       </footer>
       <!-- Add the sidebar's background. This div must be placed
            immediately after the control sidebar -->

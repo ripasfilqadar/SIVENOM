@@ -24,6 +24,13 @@ class Kontrak extends MY_Controller{
     parent::edit($id);
   }
 
+  function create(){
+    if($this->IsVendor()){
+      redirect('Welcome');
+    }
+    parent::create();
+  }
+
   function GetData(Type $var = null)
   {
     $this->GetKontrak();
